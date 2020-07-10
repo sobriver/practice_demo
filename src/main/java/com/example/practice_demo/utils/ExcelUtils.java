@@ -2,6 +2,7 @@ package com.example.practice_demo.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.DataFormatter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ExcelUtils {
 
     public static void main(String[] args) throws Exception {
-        File file = new File("D:\\tmp\\employee_template.xls");
+        File file = new File("D:\\tmp\\新建文件夹 (5)\\excel2.xls");
         readExcel(file, 2, 0, 15, 0);
     }
 
@@ -43,11 +44,12 @@ public class ExcelUtils {
                             case NUMERIC:
                                 //判断是否为日期
                                 if (HSSFDateUtil.isCellDateFormatted(cell)) {
-//                                        cellValue = LocalDateTime.fromDateFields(cell.getDateCellValue()).toString("yyyy-MM-dd HH:mm:ss");
+//                                        cellValue = LocalDateTime.
+//                                        fromDateFields(cell.getDateCellValue()).toString("yyyy-MM-dd HH:mm:ss");
                                 } else {//数字
-                                    //解决科学计数法问题
-                                    BigDecimal num = BigDecimal.valueOf(cell.getNumericCellValue());
-                                    cellValue = num.toPlainString();
+                                    //解决科学计数法和小数点问题
+                                    DataFormatter formatter = new DataFormatter();
+                                    cellValue = formatter.formatCellValue(cell);
                                 }
                                 break;
                             case STRING://字符型
@@ -76,6 +78,8 @@ public class ExcelUtils {
             }
             data.add(rowArray);
         }
+
+        System.out.println("sdsd");
 
     }
 }
