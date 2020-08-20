@@ -1,21 +1,33 @@
 package com.example.practice_demo.test;
 
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.IntStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class Test {
-    public static void main(String[] args) {
-        Date date1 = new Date(122222220);
-        Date date2 = new Date(122222221);
-        Date date3 = new Date(122222224);
+    public static void main(String[] args) throws Exception {
 
-        List<Date> list = new ArrayList<>();
-        list.add(date1);
-        list.add(date2);
-        list.add(date3);
-        Optional<Date> date = list.stream().max(Comparator.comparing(Date::getTime));
-        date.ifPresent(item -> System.out.println(item.getTime()));
+        Process process = Runtime.getRuntime().exec("python D:\\PycharmProjects\\quantify\\study\\tyyy.py");
+        BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line = null;
+        while ((line = in.readLine()) != null) {
+            System.out.println(line);
+        }
+        in.close();
+        process.waitFor();
+
     }
 
     private void t1() {

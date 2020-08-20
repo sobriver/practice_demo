@@ -12,14 +12,14 @@ public class SendHttp {
 
         OkHttpClient client = new OkHttpClient();
 
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < 180; i++) {
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             Request request = new Request
-                    .Builder() //利用建造者模式创建Request对象
+                    .Builder()
                     .url("https://www.acchw.top:9010/acc/app/mail/changePwd?email=sobriver@163.com")
                     .addHeader("token", "eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiI5IiwiaWF0IjoxNTk2MDA3MjI5LCJleHAiOjE1OTg1OTkyMjl9.6F9xkfM4hZc9z-Fh9LwhYQUbEFHaUn8nsyN5Zbnen3aoRtCYw2SLum7C2_wc7qpjudMaKxDdCcX26jx2OfbSSw")
                     .build();
