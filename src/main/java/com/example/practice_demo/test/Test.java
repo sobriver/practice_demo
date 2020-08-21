@@ -21,14 +21,17 @@ import java.util.zip.ZipInputStream;
 public class Test {
     public static void main(String[] args) throws Exception {
 
-        Process process = Runtime.getRuntime().exec("python D:\\PycharmProjects\\quantify\\study\\tyyy.py");
+        String[] command = new String[] { "python", "D:\\PycharmProjects\\quantify\\study\\tyyy.py", "34534343dfdfdf"};
+        Process process = Runtime.getRuntime().exec(command);
+
         BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line = null;
         while ((line = in.readLine()) != null) {
-            List<StockData> list = JSON.parseArray(line, StockData.class);
-            System.out.println(list);
+            System.out.println(line);
         }
         in.close();
+
+
         process.waitFor();
 
     }
