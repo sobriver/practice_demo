@@ -1,5 +1,7 @@
 package com.example.practice_demo.test;
 
+import com.alibaba.fastjson.JSON;
+import com.example.practice_demo.dto.StockData;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
 
@@ -23,7 +25,8 @@ public class Test {
         BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line = null;
         while ((line = in.readLine()) != null) {
-            System.out.println(line);
+            List<StockData> list = JSON.parseArray(line, StockData.class);
+            System.out.println(list);
         }
         in.close();
         process.waitFor();
