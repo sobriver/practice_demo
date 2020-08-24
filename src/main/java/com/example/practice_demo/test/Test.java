@@ -27,7 +27,11 @@ public class Test {
         BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line = null;
         while ((line = in.readLine()) != null) {
-            System.out.println(line);
+            if (line.startsWith("612926ee76f3402a9e0bc1b8e2ee4004=")){
+                String s = line.replace("612926ee76f3402a9e0bc1b8e2ee4004=", "");
+                List<StockData> list = JSON.parseArray(s, StockData.class);
+                System.out.println(list);
+            }
         }
         in.close();
 
