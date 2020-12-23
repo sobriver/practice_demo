@@ -14,7 +14,7 @@ public class WriteExcel {
     public static void main(String[] args) throws Exception {
         String filename = "D:\\test\\employee_template (15).xlsx";
 
-        Connection connection = DbUtils.getConnection();
+        Connection connection = DbUtils.getConnection(null, null, null);
         String sql = "select name from middle_end_base.person order by name_spell, gmt_create desc limit 100000";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);

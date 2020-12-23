@@ -15,13 +15,7 @@ import java.util.concurrent.*;
 @Slf4j
 public class Demo1 {
 
-    public static void main(String[] args) {
-
-        list();
-//        map();
-
-
-    }
+    
 
 
     public static void list() {
