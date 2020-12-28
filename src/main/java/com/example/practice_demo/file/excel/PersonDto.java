@@ -1,4 +1,4 @@
-package com.example.practice_demo.dto;
+package com.example.practice_demo.file.excel;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;

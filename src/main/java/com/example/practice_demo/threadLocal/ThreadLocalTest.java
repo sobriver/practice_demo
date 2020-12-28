@@ -1,4 +1,4 @@
-package com.example.practice_demo.test;
+package com.example.practice_demo.threadLocal;
 
 import org.springframework.core.NamedThreadLocal;
 

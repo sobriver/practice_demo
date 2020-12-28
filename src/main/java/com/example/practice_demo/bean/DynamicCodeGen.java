@@ -1,8 +1,11 @@
-package com.example.practice_demo.t1;
+package com.example.practice_demo.bean;
 
 import net.openhft.compiler.CompilerUtils;
 
-public class ComplilerTest {
+/**
+ * 根据字符串动态生成Java代码
+ */
+public class DynamicCodeGen {
     public static void main(String[] args) throws Exception{
         String className = "com.example.practice_demo.t1.User";
         String code = "package com.example.practice_demo.t1;\n" +

@@ -1,13 +1,12 @@
 package com.example.practice_demo.db;
 
-import com.example.practice_demo.utils.DbUtils;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 /**
- * 快速批量插入数据
+ * 快速批量往mysql插入数据
  */
 public class BatchInsertData {
 

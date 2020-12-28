@@ -1,4 +1,4 @@
-package com.example.practice_demo.t1;
+package com.example.practice_demo.bean;
 
 public interface UserInterface {
 
