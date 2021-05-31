@@ -2,6 +2,7 @@ package com.example.practice_demo.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /**
  * 数据库工具类

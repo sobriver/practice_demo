@@ -9,11 +9,19 @@ import java.util.List;
 
 public class FileWalk {
     public static void main(String[] args) throws Exception{
-        String path = "D:\\tmp\\批量导入测试\\多个excel文件和图片";
+        String path = "D:\\test\\112\\logcat";
+        String grep = "featureCount featureSechedule";
 
-        getAllFiles("D:\\tmp\\批量导入测试\\多个excel文件和图片").forEach(item -> {
-                System.out.println(item.toString());
-
+        getAllFiles(path).forEach(file -> {
+            try {
+                Files.readAllLines(file).forEach(line -> {
+                    if (line.contains(grep)){
+                        System.out.println(line);
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
